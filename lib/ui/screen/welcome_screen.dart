@@ -12,86 +12,87 @@ class WelcomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: StandardScreen(
-        child: Expanded(
-          child: Center(
-            child: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.fromLTRB(11, 52, 11, 52),
-                  child: Image.asset(
-                    "/Users/admin/AndroidStudioProjects/onboarding/lib/images/work_from_home.png",
-                    width: 363,
-                    height: 370,
-                  ),
+        child: Center(
+          child: Column(
+            children: [
+              const SizedBox(height: 50),
+              Padding(
+                padding: EdgeInsets.fromLTRB(11, 26, 11, 26),
+                child: Image.asset(
+                  "/Users/admin/AndroidStudioProjects/onboarding/lib/images/work_from_home.png",
+                  width: 363,
+                  height: 370,
                 ),
-                SizedBox(
-                  width: 343,
-                  child: Text(
-                    "Discover Your Dream Job here",
-                    maxLines: 2,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 35,
-                      color: colors.primary,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 23),
-                const SizedBox(
-                  width: 323,
-                  child: Text(
-                    "Explore all the existing job roles based on your interest and study major",
-                    maxLines: 2,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 14,
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 88),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+              ),
+              const SizedBox(height: 47),
+              SizedBox(
+                width: 343,
+                child: Column(
+                  spacing: 23,
                   children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/login');
-                      },
-                      child: Text(
-                        "Login",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 20,
-                        ),
+                    Text(
+                      "Discover Your Dream Job here",
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 35,
+                        color: colors.primary,
                       ),
                     ),
-                    SizedBox(width: 30),
-                    TextButton(
-                      style: TextButton.styleFrom(
-                        minimumSize: Size(160, 60),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                        ),
-                      ),
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/register');
-                      },
-                      child: Text(
-                        "Register",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600,
-                        ),
+                    Text(
+                      "Explore all the existing job roles based on your interest and study major",
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 14,
+                        color: Colors.black,
                       ),
                     ),
                   ],
                 ),
-              ],
-            ),
+              ),
+              const SizedBox(height: 88),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/login');
+                    },
+                    child: Text(
+                      "Login",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 30),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      minimumSize: Size(160, 60),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/register');
+                    },
+                    child: Text(
+                      "Register",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),
