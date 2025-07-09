@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:onboarding/utils/validators.dart';
 
 import '../widgets/custom_text_button.dart';
 import '../widgets/custom_text_form_field.dart';
 import '../widgets/standard_screen.dart';
 
-
 class CreateNewAccountScreen extends StatefulWidget {
-  const CreateNewAccountScreen({super.key});
+  final _passwordController = TextEditingController();
+
+  CreateNewAccountScreen({super.key});
 
   @override
   State<CreateNewAccountScreen> createState() => _CreateNewAccountScreenState();
 }
 
 class _CreateNewAccountScreenState extends State<CreateNewAccountScreen> {
-  final _fromKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -58,16 +60,33 @@ class _CreateNewAccountScreenState extends State<CreateNewAccountScreen> {
                     spacing: 30,
                     children: [
                       Form(
-                        key: _fromKey,
+                        key: _formKey,
                         child: Column(
                           spacing: 26,
                           children: [
-                            CustomTextFormField(hintText: "Email"),
                             CustomTextFormField(
+                              hintText: "Email",
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return "Please enter your email";
+                                } else if (!isEmailValidated(value)) {
+                                  return "Invalid email";
+                                }
+                                return null;
+                              },
+                            ),
+                            CustomTextFormField(
+                              controller: widget._passwordController,
                               hintText: "Password",
                               obscureText: true,
                             ),
                             CustomTextFormField(
+                              validator: (value) {
+                                if (widget._passwordController.text != value) {
+                                  return "Password do not match";
+                                }
+                                return null;
+                              },
                               hintText: "Confirm Password",
                               obscureText: true,
                             ),
@@ -81,9 +100,11 @@ class _CreateNewAccountScreenState extends State<CreateNewAccountScreen> {
                             style: ButtonStyle(
                               fixedSize: WidgetStatePropertyAll(Size(357, 60)),
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              _formKey.currentState!.validate();
+                            },
                             child: Text(
-                              "Sign in",
+                              "Sign up",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
@@ -96,7 +117,10 @@ class _CreateNewAccountScreenState extends State<CreateNewAccountScreen> {
                             height: 41,
                             child: TextButton(
                               onPressed: () {
-                                Navigator.pushReplacementNamed(context, '/login');
+                                Navigator.pushReplacementNamed(
+                                  context,
+                                  '/login',
+                                );
                               },
                               child: Text(
                                 "Already have an account",
@@ -156,4 +180,3 @@ class _CreateNewAccountScreenState extends State<CreateNewAccountScreen> {
     );
   }
 }
-

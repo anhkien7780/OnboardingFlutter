@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onboarding/utils/validators.dart';
 
 import '../widgets/custom_text_button.dart';
 import '../widgets/custom_text_form_field.dart';
@@ -12,7 +13,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final _fromKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -57,11 +58,18 @@ class _LoginScreenState extends State<LoginScreen> {
                     spacing: 30,
                     children: [
                       Form(
-                        key: _fromKey,
+                        key: _formKey,
                         child: Column(
                           spacing: 29,
                           children: [
-                            CustomTextFormField(hintText: "Email"),
+                            CustomTextFormField(hintText: "Email", validator: (value){
+                              if(value.isEmpty){
+                                return "Please enter your email";
+                              } else if(!isEmailValidated(value)){
+                                return "Invalid email address";
+                              }
+                              return null;
+                            },),
                             CustomTextFormField(
                               hintText: "Password",
                               obscureText: true,
@@ -90,7 +98,9 @@ class _LoginScreenState extends State<LoginScreen> {
                             style: ButtonStyle(
                               fixedSize: WidgetStatePropertyAll(Size(357, 60)),
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              _formKey.currentState!.validate();
+                            },
                             child: Text(
                               "Sign in",
                               style: TextStyle(
