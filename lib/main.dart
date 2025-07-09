@@ -36,6 +36,7 @@ class MyApp extends StatelessWidget {
 ElevatedButtonThemeData _buildElevatedButtonThemeData() {
   return ElevatedButtonThemeData(
     style: ButtonStyle(
+      elevation: WidgetStatePropertyAll(10),
       backgroundColor: WidgetStatePropertyAll(lightColorSchema.primary),
       overlayColor: WidgetStateProperty.resolveWith((states) {
         if (states.contains(WidgetState.pressed)) {
