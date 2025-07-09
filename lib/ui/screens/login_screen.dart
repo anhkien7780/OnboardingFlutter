@@ -4,7 +4,6 @@ import '../widgets/custom_text_button.dart';
 import '../widgets/custom_text_form_field.dart';
 import '../widgets/standard_screen.dart';
 
-
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -53,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 74,),
+                  const SizedBox(height: 74),
                   Column(
                     spacing: 30,
                     children: [
@@ -106,7 +105,10 @@ class _LoginScreenState extends State<LoginScreen> {
                             height: 41,
                             child: TextButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/register');
+                                Navigator.pushReplacementNamed(
+                                  context,
+                                  '/register',
+                                );
                               },
                               child: Text(
                                 "Create new account",
@@ -122,7 +124,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 65,),
+                  const SizedBox(height: 65),
                   Column(
                     spacing: 20,
                     children: [

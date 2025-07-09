@@ -96,7 +96,7 @@ class _CreateNewAccountScreenState extends State<CreateNewAccountScreen> {
                             height: 41,
                             child: TextButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/login');
+                                Navigator.pushReplacementNamed(context, '/login');
                               },
                               child: Text(
                                 "Already have an account",
