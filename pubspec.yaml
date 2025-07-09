@@ -67,6 +67,4 @@ flutter:
         weight: 600
       - asset: assets/fonts/Poppins/Poppins-Bold.ttf
         weight: 700
-  assets:
-    - images/
 

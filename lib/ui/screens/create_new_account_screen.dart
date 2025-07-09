@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:onboarding/ui/screen/welcome_screen.dart';
+
+import '../widgets/custom_text_button.dart';
+import '../widgets/custom_text_form_field.dart';
+import '../widgets/standard_screen.dart';
+
 
 class CreateNewAccountScreen extends StatefulWidget {
   const CreateNewAccountScreen({super.key});
@@ -153,56 +157,3 @@ class _CreateNewAccountScreenState extends State<CreateNewAccountScreen> {
   }
 }
 
-class CustomTextFormField extends StatefulWidget {
-  final String hintText;
-  final bool obscureText;
-
-  const CustomTextFormField({
-    super.key,
-    required this.hintText,
-    this.obscureText = false,
-  });
-
-  @override
-  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
-}
-
-class _CustomTextFormFieldState extends State<CustomTextFormField> {
-  @override
-  Widget build(BuildContext context) => TextFormField(
-    obscureText: widget.obscureText,
-    decoration: InputDecoration(
-      filled: true,
-      fillColor: Color(0xffF1F4FF),
-      border: OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.transparent),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      hintText: widget.hintText,
-      hintStyle: TextStyle(
-        color: Color(0xff626262),
-        fontSize: 16,
-        fontWeight: FontWeight.w400,
-      ),
-      enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.transparent),
-        borderRadius: BorderRadius.circular(10),
-      ),
-    ),
-  );
-}
-
-class CustomTextButton extends StatelessWidget {
-  final VoidCallback? onPressed;
-  final String imageUri;
-
-  const CustomTextButton({
-    super.key,
-    required this.imageUri,
-    required this.onPressed,
-  });
-
-  @override
-  Widget build(BuildContext context) =>
-      IconButton(onPressed: onPressed, icon: Image.asset(imageUri));
-}

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:onboarding/ui/screen/creat_new_account_screen.dart';
-import 'package:onboarding/ui/screen/login_screen.dart';
-import 'package:onboarding/ui/screen/welcome_screen.dart';
+import 'package:onboarding/ui/screens/create_new_account_screen.dart';
+import 'package:onboarding/ui/screens/login_screen.dart';
+import 'package:onboarding/ui/screens/welcome_screen.dart';
+
 import 'package:onboarding/ui/theme/color.dart';
 
 void main() {
@@ -15,7 +16,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '',
       theme: ThemeData(
         colorScheme: lightColorSchema,
         useMaterial3: true,
